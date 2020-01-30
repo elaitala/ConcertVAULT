@@ -16,6 +16,9 @@ app.use(bodyParser.json());
 // ----------------------------- ROUTES
 
 // VIEW routes
+app.get('/', (request, response) => {
+  response.send(`<h1>Welcome to the concertVAULT API</h1>`);
+});
 
 // API routes
 
