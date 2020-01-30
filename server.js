@@ -21,6 +21,21 @@ app.get('/', (request, response) => {
 });
 
 // API routes
+// DOCUMENTATION route
+app.get('/ai/v1', (request, response) => {
+  const doc = {
+    message: 'Welcome to the concertVAULT API',
+    endpoints: [
+      {
+        method: 'GET',
+        path: '/api/v1',
+        description: 'Describes all available endpoints'
+      }
+    ]
+  };
+  response.json(doc);
+});
+
 
 // 404 route
 app.get('/*', (request, response) => {
