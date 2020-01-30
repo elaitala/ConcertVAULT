@@ -36,6 +36,17 @@ app.get('/ai/v1', (request, response) => {
   response.json(doc);
 });
 
+// CONCERT routes
+// index
+app.get('api/v1/concert', (request, response) => {
+  response.json({message: 'Concert INDEX'});
+});
+// create
+app.post('/api/v1/concert', (request, response) => {
+  response.json({message: 'Concert CREATE', body: request.body});
+});
+
+
 
 // 404 route
 app.get('/*', (request, response) => {
