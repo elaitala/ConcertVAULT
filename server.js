@@ -30,23 +30,44 @@ app.get('/ai/v1', (request, response) => {
         method: 'GET',
         path: '/api/v1',
         description: 'Describes all available endpoints'
+      },
+      {
+        method: 'GET',
+        path: '/api/v1/user',
+        description: 'Responds with JSON of all USER documents'
       }
     ]
   };
   response.json(doc);
 });
 
-// CONCERT routes
-// index
-app.get('api/v1/concert', (request, response) => {
-  response.json({message: 'Concert INDEX'});
+// USER routes
+// INDEX
+app.get('api/v1/user', (request, response) => {
+  response.json({message: 'User INDEX'});
 });
-// create
-app.post('/api/v1/concert', (request, response) => {
-  response.json({message: 'Concert CREATE', body: request.body});
+// CREATE
+app.post('/api/v1/user', (request, response) => {
+  response.json({message: 'User CREATE', body: request.body});
+});
+// SHOW -> ID === user ID
+app.post('/api/v1/user/:id', (request, response) => {
+  response.json({message: 'User SHOW', params: request.params});
+});
+// UPDATE -> ID === user ID
+// Will receive JSON for update in request.body
+app.put('/api/v1/user/:id', (request, response) => {
+  response.json({
+    message: 'User UPDATE',
+    params: request.params,
+    body: request.body
+  });
 });
 
-
+// DELETE -> ID === user ID
+app.delete('/api/v1/user/:id', (request, response) => {
+  response.json({message: 'USER delete', params: request.params});
+});
 
 // 404 route
 app.get('/*', (request, response) => {
