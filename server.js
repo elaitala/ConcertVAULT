@@ -290,6 +290,27 @@ app.delete('/api/v1/concert/:id', (request, response) => {
 
 });
 
+// VENUE routes
+// Updates CONCERT to add VENUE
+
+app.put('/api/v1/concert/:id/venues', async(request, response) => {
+  try{
+    const foundConcert = await db.Concert.findById(request.params.id);
+    foundConcert.venue.push(request.body);
+    foundConcert.save(); //commits changes to DB
+    const responseObj = {
+      status: 200,
+      data: foundConcert,
+      requestedAt: new Date().toLocaleString()
+    };
+    response.status(200).json(responseObj);
+  } catch (error) {
+    return response
+    .status(500)
+    .json({message: 'Broke a string, huh?', error: error});
+  }
+});
+
 // 405 route
 app.use('/api/v1/*', utils.methodNotAllowed);
 

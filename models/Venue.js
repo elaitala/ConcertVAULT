@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+console.log('VENUE working...');
+
 const VenueSchema = new Schema({
   name: String,
   city: String,
