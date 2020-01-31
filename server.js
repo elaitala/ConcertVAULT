@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 
 // ----------------------------- INTERNAL modules
 const db = require('./models');
-console.log(db.User);
 
 // ----------------------------- INSTANCED modules
 const app = express();
