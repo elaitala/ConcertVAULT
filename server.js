@@ -3,9 +3,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 // ----------------------------- INTERNAL modules
-const app = express();
+const db = require('./models');
+console.log(db.User.find());
 
 // ----------------------------- INSTANCED modules
+const app = express();
 
 // ----------------------------- CONFIGURATION variables
 const PORT = 3000;
