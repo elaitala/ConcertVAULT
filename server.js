@@ -301,11 +301,7 @@ app.put('/api/v1/concert/:id/venues', async(request, response) => {
 app.use('/api/v1/*', utils.methodNotAllowed);
 
 // 404 route
-app.get('/*', (request, response) => {
-  response
-    .status(404)
-    .send(`<h1>404</h1><h2>You don't have to go home</h2><h3>But you can't stay here</h3>`);
-});
+app.get('/*', utils.notFound);
 
 // ----------------------------- Start SERVER
 app.listen(PORT, () => {
