@@ -149,7 +149,9 @@ app.delete('/api/v1/user/:id', (request, response) => {
 // CONCERT routes
 // INDEX
 app.get('/api/v1/concert', (request, response) => {
-  db.Concert.find({}, (error, allConcerts) => {
+  db.Concert.find({})
+    .populate('concertGoers')
+    .exec((error, allConcerts) => {
     if (error) {
       // Always RETURN to exit
       return response
@@ -185,9 +187,11 @@ app.post('/api/v1/concert', (request, response) => {
 
 // SHOW -> ID === concert ID
 app.get('/api/v1/concert/:id', (request, response) => {
-  db.Concert.findById(request.params.id, (error, foundConcert) => {
+  db.Concert.findById(request.params.id)
+    .populate('concertGoers')
+    .exec((error, foundConcert) => {
     if(error) {
-      // Always RETURN to exit
+      // Always RETURN
       return response
         .status(500)
         .json({message: 'Broke a string, huh?', error: error});
@@ -222,6 +226,25 @@ app.put('/api/v1/concert/:id', (request, response) => {
       response.status(200).json(responseObj);
     }
   );
+});
+
+// SHOW async refactor
+app.get('/api/v1/concert/:id/async', async(request, response) => {
+  try{
+    const foundConcert = await (await db.Concert.findById(request.params.id)).populate(
+      'concertGoer'
+    );
+    const responseObj = {
+      status: 200,
+      data: foundConcert,
+      requestedAt: new Date().toLocaleString()
+    };
+    response.status(200).json(responseObj);
+  } catch(error) {
+    return response
+      .status(500)
+      .json({message: 'Broke a string, huh?', error: error});
+  }
 });
 
 // DELETE -> ID === concert ID
