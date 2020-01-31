@@ -15,4 +15,4 @@ const ConcertSchema = new Schema ({
 
 const Concert = mongoose.model('Concert', ConcertSchema);
 
-module.exports = Trainer;
+module.exports = Concert;
