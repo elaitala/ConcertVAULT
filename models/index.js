@@ -14,5 +14,6 @@ mongoose
 .catch(err => console.log(err));
 
 module.exports = {
-  User: require('./User')
+  User: require('./User'),
+  Concert: require('./Concert')
 };
