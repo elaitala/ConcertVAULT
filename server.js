@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 
 // ----------------------------- INTERNAL modules
 const db = require('./models');
+const utils = require('./middleware/utils');
 
 // ----------------------------- INSTANCED modules
 const app = express();
@@ -13,6 +14,8 @@ const PORT = 3000;
 
 // ----------------------------- MIDDLEWARE
 app.use(bodyParser.json());
+// logger
+app.use(utils.logger);
 
 // ----------------------------- ROUTES
 
@@ -286,6 +289,9 @@ app.delete('/api/v1/concert/:id', (request, response) => {
   });
 
 });
+
+// 405 route
+app.use('/api/v1/*', utils.methodNotAllowed);
 
 // 404 route
 app.get('/*', (request, response) => {
