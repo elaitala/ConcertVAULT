@@ -128,7 +128,22 @@ app.put('/api/v1/user/:id', (request, response) => {
 
 // DELETE -> ID === user ID
 app.delete('/api/v1/user/:id', (request, response) => {
-  response.json({message: 'USER delete', params: request.params});
+  // response.json({message: 'USER delete', params: request.params});
+  db.User.findByIdAndDelete(request.params.id, (error, deletedUser) => {
+    if(error) {
+      // Always RETURN to exit
+      return response
+        .status(500)
+        .json({message: 'Broke a string, huh?', error: error});
+    }
+    const responseObj = {
+      status: 200,
+      data: deletedUser,
+      requestedAt: new Date().toLocaleString()
+    };
+    response.status(200).json(responseObj);
+  });
+
 });
 
 // 404 route
