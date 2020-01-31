@@ -45,7 +45,21 @@ app.get('/api/v1', (request, response) => {
 // USER routes
 // INDEX
 app.get('/api/v1/user', (request, response) => {
-  response.json({message: 'User INDEX'});
+  db.User.find({}, (error, allUsers) => {
+    if (error) {
+      // Always RETURN to exit
+      return response
+      .status(500)
+      .json({message: 'Broke a string, huh?', error: error});
+    }
+    const responseObj = {
+      status: 200,
+      data: allUsers,
+      length: allUsers.length,
+      requestedAt: new Date().toLocaleString()
+    };
+    response.status(200).json(responseObj);
+  });
 });
 // CREATE
 app.post('/api/v1/user', (request, response) => {
