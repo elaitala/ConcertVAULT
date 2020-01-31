@@ -21,8 +21,24 @@ const render = () => {
     const resourceItem = `
       <li class="resource">
         <h3>${resource.name}</h3>
+        ${buildRoutes(resource.routes)}
       </li>
     `;
     resourceList.insertAdjacentHTML('beforeend', resourceItem);
   });
+};
+
+// build HTML from array and returns one large HTML string
+const buildRoutes = routes => {
+  return routes
+    .map(route => {
+      return `
+      <section class="route">
+        <h4>Method: ${route.method}</h4>
+        <h4>Url: ${route.path}</h4>
+        <p>${route.description}</p>
+      </section>
+    `;
+    })
+    .join('');
 };
