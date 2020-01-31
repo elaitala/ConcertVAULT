@@ -10,17 +10,39 @@
 
 .navbar-brand {
     font-family: 'Patua One', cursive;
+    color: white;
+}
+
+.navbar-nav {
+    list-style-type: none;
+}
+
+.navbar-nav > li {
+    padding-left:30px;
+    padding-right:30px;
+    padding-top: 15px;
 }
 
 body {
     font-family: 'Noto Sans SC', sans-serif;
+    color: white;
+    background: rgb(66,219,25);
+    background: linear-gradient(90deg, rgba(66,219,25,1) 0%, rgba(78,156,221,1) 50%, rgba(219,252,69,1) 100%);
+}
+
+h1 {
+    font-family: 'Patua One', cursive;
+    color: white;
+    font-size: 400%;
+    padding-top: 5%;
+    padding-left: 3%;
 }
 
 .container {
-    background-color: white;
+    background-color: rgba(0,0,0,.3);
     border-radius: 5px;
     box-shadow: 0 2px 10px rgba(0,0,0,.3);
-    width: 400px;
+    width: 800px;
 }
 
 .form {
@@ -56,5 +78,5 @@ body {
     font-size: 14px;
     padding: 10px;
     margin-top: 20px;
-    width: 100%;
+    width: 40%;
 }

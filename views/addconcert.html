@@ -7,7 +7,7 @@
     <!-- Bootstrap CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- CUSTOM CSS -->
-    <link rel="stylesheet" href="/public/styles/index.cs">
+    <link rel="stylesheet" href="/public/styles/addconcert.css">
     <!-- CUSTOM JS -->
     <script defer src="/public/scripts/index.js"></script>
     <title>concertVAULT</title>
@@ -15,9 +15,6 @@
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">concertVAULT</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
         <li class="nav-item active">
@@ -49,9 +46,9 @@
             </div>
             <div class="form-control">
                 <label for="concertBuddies">Concert Buddies</label>
-                <input type="password" id="concertBuddies" placeholder="Who did you go with?">
+                <input type="text" id="concertBuddies" placeholder="Who did you go with?">
             </div>
-            <button>Press Play</button><button>Cancel</button>
+            <button id="play">Press Play</button><button id="stop">Cancel</button>
         </form>
     </div>
 
