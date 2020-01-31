@@ -24,7 +24,7 @@ app.get('/', (request, response) => {
 
 // API routes
 // DOCUMENTATION route
-app.get('/ai/v1', (request, response) => {
+app.get('/api/v1', (request, response) => {
   const doc = {
     message: 'Welcome to the concertVAULT API',
     endpoints: [
@@ -45,7 +45,7 @@ app.get('/ai/v1', (request, response) => {
 
 // USER routes
 // INDEX
-app.get('api/v1/user', (request, response) => {
+app.get('/api/v1/user', (request, response) => {
   response.json({message: 'User INDEX'});
 });
 // CREATE
