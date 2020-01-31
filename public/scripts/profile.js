@@ -1,4 +1,4 @@
 map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 36.7783, lng: 119.4179},
-    zoom:4
-    });
+    center: {lat: 37.78, lng: -122.44},
+    zoom: 9
+});

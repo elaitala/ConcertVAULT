@@ -10,6 +10,16 @@
 
 .navbar-brand {
     font-family: 'Patua One', cursive;
+    color: white;
+}
+.navbar-nav {
+    list-style-type: none;
+}
+
+.navbar-nav > li {
+    padding-left:30px;
+    padding-right:30px;
+    padding-top: 15px;
 }
 
 body {
@@ -20,4 +30,22 @@ body {
 
 h1 {
     font-family: 'Patua One', cursive;
+    color: white;
+    font-size: 400%;
+    padding-top: 5%;
+    padding-left: 3%;
+}
+
+.card-deck {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0;
+    height: 600px;
+
+}
+
+.card-body {
+    background-color: rgba(0,0,0,.4);
+    display: table-cell;
 }
