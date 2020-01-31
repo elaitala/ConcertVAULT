@@ -16,12 +16,18 @@ const PORT = 3000;
 app.use(bodyParser.json());
 // logger
 app.use(utils.logger);
+// Serves the PUBLIC folder
+app.use(express.static(__dirname + '/public'));
 
 // ----------------------------- ROUTES
 
 // VIEW routes
 app.get('/', (request, response) => {
   response.send(`<h1>Welcome to the concertVAULT API</h1>`);
+});
+
+app.get('/documentation', (request, response) => {
+  response.sendFile(__dirname + '/views/documentation.html');
 });
 
 // API routes
