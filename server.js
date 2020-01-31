@@ -247,6 +247,27 @@ app.get('/api/v1/concert/:id/async', async(request, response) => {
   }
 });
 
+// UPDATE async refactor
+app.put('/api/v1/concert/:id', async(request, response) => {
+  try{
+    const updatedConcert = await db.Concert.findByIdAndUpdate(
+      request.params.id,
+      request.body,
+      {new: true}
+    );
+    const responseObj = {
+      status: 200,
+      data: updatedConcert,
+      requestedAt: new Date().toLocaleString()
+    };
+    response.status(200). json(responseObj);
+  } catch (error) {
+    return response
+      .status(500)
+      .json({message: 'Broke a string, huh?', error: error});
+  }
+});
+
 // DELETE -> ID === concert ID
 app.delete('/api/v1/concert/:id', (request, response) => {
   db.Concert.findByIdAndDelete(request.params.id, (error, deletedConcert) => {
