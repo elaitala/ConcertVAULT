@@ -23,19 +23,22 @@
 }
 
 h1 {
-    font-family: 'Patua One', cursive;
+    /* font-family: 'Patua One', cursive; */
+    font-family: 'Concert One', cursive;
     color: black;
+    z-index: 3;
+    position: absolute;
     font-size: 400%;
     padding-top: 5%;
     padding-left: 3%;
 }
 
-.stroke {
+/* .stroke {
     color: white;
     -webkit-text-fill-color: rgba(0,0,225,0);
     -webkit-text-stroke-width: .01px;
     -webkit-text-stroke-color: white;
-}
+} */
 
 body { 
     background: url('../images/tonight-alive-music-concert.jpg') no-repeat center center fixed; 

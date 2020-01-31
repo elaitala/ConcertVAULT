@@ -36,6 +36,11 @@ h1 {
     padding-left: 3%;
 }
 
+.card-image-top {
+    height: 300px;
+    width: 300px;
+}
+
 .card-deck {
     display: flex;
     flex-direction: row;
@@ -48,4 +53,36 @@ h1 {
 .card-body {
     background-color: rgba(0,0,0,.4);
     display: table-cell;
+}
+
+.form label {
+    color: #777;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form input {
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.form input:focus {
+    outline: 0;
+    border-color: #777;
+}
+
+.form button {
+    cursor: pointer;
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 4px;
+    display: block;
+    font-size: 14px;
+    padding: 10px;
+    margin-top: 20px;
+    width: 40%;
 }
