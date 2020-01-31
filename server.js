@@ -63,8 +63,24 @@ app.get('/api/v1/user', (request, response) => {
 });
 // CREATE
 app.post('/api/v1/user', (request, response) => {
-  response.json({message: 'User CREATE', body: request.body});
+  // response.json({message: 'User CREATE', body: request.body});
+  db.User.create(request.body, (error, createdUser) => {
+    if(error) {
+      // Always RETURN to exit
+      return response
+        .status(500)
+        .json({message: 'Broke a string, huh?', error: error});
+    }
+    const responseObj = {
+      status: 200,
+      data: createdUser,
+      requestedAt: new Date().toLocaleString()
+    };
+    response.status(200).json(responseObj);
+  });
+
 });
+
 // SHOW -> ID === user ID
 app.post('/api/v1/user/:id', (request, response) => {
   response.json({message: 'User SHOW', params: request.params});
