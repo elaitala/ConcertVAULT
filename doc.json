@@ -1,0 +1,21 @@
+{
+  "status": 200,
+  "message": "Welcome to the concertVAULT API",
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "api/v1",
+      "description": "Describes all available endpoints"
+    },
+    {
+      "method": "GET",
+      "path": "api/v1/user",
+      "description": "Responds with JSON of all USER documents"
+    },
+    {
+      "method": "GET",
+      "path": "api/v1/user/:id",
+      "description": "Responds with JSON of a specific USER document based on the ID given"
+    }
+  ] 
+}

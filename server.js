@@ -27,21 +27,7 @@ app.get('/', (request, response) => {
 // API routes
 // DOCUMENTATION route
 app.get('/api/v1', (request, response) => {
-  const doc = {
-    message: 'Welcome to the concertVAULT API',
-    endpoints: [
-      {
-        method: 'GET',
-        path: '/api/v1',
-        description: 'Describes all available endpoints'
-      },
-      {
-        method: 'GET',
-        path: '/api/v1/user',
-        description: 'Responds with JSON of all USER documents'
-      }
-    ]
-  };
+  const doc = require('./doc.json');
   response.json(doc);
 });
 
