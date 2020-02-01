@@ -22,6 +22,22 @@
     padding-top: 15px;
 }
 
+.container {
+    font-family: 'Noto Sans', cursive;
+    padding-top: 8%;
+}
+
+#profile-container {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+}
+
 .user {
     display: flex;
     width: 150px;
@@ -34,6 +50,18 @@
 }
 
 #map {
-    height: 800px;
+    height: 600px;
     margin-top: 20px;
+}
+
+.concert {
+    cursor: pointer;
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 4px;
+    display: block;
+    font-size: 14px;
+    padding: 10px;
+    margin-top: 20px;
+    width: 40%;
 }
