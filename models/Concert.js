@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const Venue = require('./Venue');
 
-
 console.log('CONCERT working...');
 
 const ConcertSchema = new Schema ({

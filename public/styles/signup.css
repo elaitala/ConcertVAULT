@@ -34,34 +34,29 @@ h1 {
     font-size: 400%;
     padding-top: 5%;
     padding-left: 3%;
+    padding-bottom: 3%;
 }
 
-.card-image-top {
-    height: 300px;
-    width: 300px;
+img {
+    width: 100%;
 }
 
-.card-deck {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin: 0;
-    height: 600px;
-
+#form {
+    background: rgba(0,0,225,0);
 }
 
-.card-body {
-    background-color: rgba(0,0,0,.4);
-    display: table-cell;
+h5 {
+    color: white;
+    font-size: 25px;
 }
 
-.form label {
+#form label {
     color: #777;
     display: block;
     margin-bottom: 5px;
 }
 
-.form input {
+#form input {
     border: 2px solid #f0f0f0;
     border-radius: 4px;
     display: block;
@@ -70,12 +65,12 @@ h1 {
     font-size: 14px;
 }
 
-.form input:focus {
+#form input:focus {
     outline: 0;
     border-color: #777;
 }
 
-.form button {
+#form button {
     cursor: pointer;
     background-color: #3498db;
     color: #fff;

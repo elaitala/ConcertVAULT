@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 // ----------------------------- INTERNAL modules
+
 // const db = require('./models');
 const routes = require('./routes');
 const utils = require('./middleware/utils');
@@ -188,6 +189,7 @@ app.use('/api/v1/*', utils.methodNotAllowed);
 
 // 404 route
 app.get('/*', utils.notFound);
+
 
 // ----------------------------- Start SERVER
 app.listen(PORT, () => {
