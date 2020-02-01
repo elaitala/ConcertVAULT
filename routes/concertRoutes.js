@@ -1,50 +1,10 @@
-// ----------------------------- EXTERNAL modules
 const express = require('express');
-const bodyParser = require('body-parser');
+const router = express.Router();
+const db = require('../models');
 
-// ----------------------------- INTERNAL modules
-// const db = require('./models');
-const routes = require('./routes');
-const utils = require('./middleware/utils');
-
-// ----------------------------- INSTANCED modules
-const app = express();
-
-// ----------------------------- CONFIGURATION variables
-const PORT = 3000;
-
-// ----------------------------- MIDDLEWARE
-app.use(bodyParser.json());
-// logger
-app.use(utils.logger);
-
-// Serves the PUBLIC folder
-// app.use(express.static(__dirname + '/public'));
-
-// ----------------------------- ROUTES
-
-// VIEW routes
-app.use('/', routes.views);
-
-// API routes
-// DOCUMENTATION route
-app.get('/api/v1', (request, response) => {
-  const doc = require('./doc.json');
-  response.json(doc);
-});
-
-// USER routes
-app.use('/api/v1/user', routes.user);
-
-// CONCERT routes
-app.use('/api/v1/concert', routes.concert);
-
-// 405 route
-app.use('/api/v1/*', utils.methodNotAllowed);
-
-// CONCERT routes
+// Base URL is now localhost:3000/api/v1/concert
 // INDEX
-app.get('/api/v1/concert', (request, response) => {
+router.get('/api/v1/concert', (request, response) => {
   db.Concert.find({})
     .populate('concertGoers')
     .exec((error, allConcerts) => {
@@ -64,7 +24,7 @@ app.get('/api/v1/concert', (request, response) => {
   });
 });
 // CREATE
-app.post('/api/v1/concert', (request, response) => {
+router.post('/api/v1/concert', (request, response) => {
   db.Concert.create(request.body, (error, createdConcert) => {
     if(error) {
       // Always RETURN to exit
@@ -82,7 +42,7 @@ app.post('/api/v1/concert', (request, response) => {
 });
 
 // SHOW -> ID === concert ID
-app.get('/api/v1/concert/:id', (request, response) => {
+router.get('/api/v1/concert/:id', (request, response) => {
   db.Concert.findById(request.params.id)
     .populate('concertGoers')
     .exec((error, foundConcert) => {
@@ -102,7 +62,7 @@ app.get('/api/v1/concert/:id', (request, response) => {
 });
 // UPDATE -> ID === concert ID
 // Will receive JSON for update in request.body
-app.put('/api/v1/concert/:id', (request, response) => {
+router.put('/api/v1/concert/:id', (request, response) => {
   db.Concert.findByIdAndUpdate(
     request.params.id,
     request.body,
@@ -125,7 +85,7 @@ app.put('/api/v1/concert/:id', (request, response) => {
 });
 
 // SHOW async refactor
-app.get('/api/v1/concert/:id/async', async(request, response) => {
+router.get('/api/v1/concert/:id/async', async(request, response) => {
   try{
     const foundConcert = await (await db.Concert.findById(request.params.id)).populate(
       'concertGoer'
@@ -144,7 +104,7 @@ app.get('/api/v1/concert/:id/async', async(request, response) => {
 });
 
 // UPDATE async refactor
-app.put('/api/v1/concert/:id', async(request, response) => {
+router.put('/api/v1/concert/:id', async(request, response) => {
   try{
     const updatedConcert = await db.Concert.findByIdAndUpdate(
       request.params.id,
@@ -165,7 +125,7 @@ app.put('/api/v1/concert/:id', async(request, response) => {
 });
 
 // DELETE -> ID === concert ID
-app.delete('/api/v1/concert/:id', (request, response) => {
+router.delete('/api/v1/concert/:id', (request, response) => {
   db.Concert.findByIdAndDelete(request.params.id, (error, deletedConcert) => {
     if(error) {
       // Always RETURN to exit
@@ -183,13 +143,25 @@ app.delete('/api/v1/concert/:id', (request, response) => {
 
 });
 
-// 405 route
-app.use('/api/v1/*', utils.methodNotAllowed);
+// VENUE routes
+// Updates CONCERT to add VENUE
 
-// 404 route
-app.get('/*', utils.notFound);
-
-// ----------------------------- Start SERVER
-app.listen(PORT, () => {
-  console.log(`Rocking out on http://localhost:${PORT}`)
+router.put('/api/v1/concert/:id/venues', async(request, response) => {
+  try{
+    const foundConcert = await db.Concert.findById(request.params.id);
+    foundConcert.venue.push(request.body);
+    foundConcert.save(); //commits changes to DB
+    const responseObj = {
+      status: 200,
+      data: foundConcert,
+      requestedAt: new Date().toLocaleString()
+    };
+    response.status(200).json(responseObj);
+  } catch (error) {
+    return response
+    .status(500)
+    .json({message: 'Broke a string, huh?', error: error});
+  }
 });
+
+module.exports = router;

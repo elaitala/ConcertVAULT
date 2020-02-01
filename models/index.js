@@ -15,5 +15,6 @@ mongoose
 
 module.exports = {
   User: require('./User'),
-  Concert: require('./Concert')
+  Concert: require('./Concert'),
+  Venue: require('./Venue')
 };
