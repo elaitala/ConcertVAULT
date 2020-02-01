@@ -1,0 +1,76 @@
+{
+  "status": 200,
+  "message": "Welcome to the concertVAULT API",
+  "endpoints": [
+    {
+      "name": "Base",
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/api/v1",
+          "description": "Describes all available endpoints."
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/api/v1/user",
+          "description": "Responds with JSON of all USER documents."
+        },
+        {
+          "method": "POST",
+          "path": "/api/v1/user",
+          "description": "Receives JSON of USER data and adds it to the USER Collection."
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/user/:id",
+          "description": "Responds with JSON of a specific USER document based on the ID given."
+        },
+        {
+          "method": "PUT",
+          "path": "/api/v1/user/:id",
+          "description": "Receives JSON of updated USER data and modifies the specific USER document."
+        },
+        {
+          "method": "DELETE",
+          "path": "/api/v1/user/:id",
+          "description": "Removes a specific USER document based on the ID given from the Collection."
+        }
+      ]
+    },
+    {
+      "name": "Concert",
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/api/v1/concert",
+          "description": "Responds with JSON of all CONCERT documents."
+        },
+        {
+          "method": "POST",
+          "path": "/api/v1/concert",
+          "description": "Receives JSON of CONCERT data and adds it to the CONCERT Collection."
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/concert/:id",
+          "description": "Responds with JSON of a specific CONCERT document based on the ID given."
+        },
+        {
+          "method": "PUT",
+          "path": "/api/v1/concert/:id",
+          "description": "Receives JSON of updated CONCERT data and modifies the specific CONCERT Document."
+        },
+        {
+          "method": "PUT",
+          "path": "/api/v1/concert/:id/venue",
+          "description": "Receives JSON of VENUE data and modifies the specific CONCERT Document to add an embedded VENUE Document."
+        }
+      ]
+    }
+  ]
+}
