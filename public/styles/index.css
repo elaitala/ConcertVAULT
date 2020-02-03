@@ -28,6 +28,7 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    font-family: 'Noto Sans', cursive;
 }
 
 h1 {
@@ -38,6 +39,14 @@ h1 {
     padding-left: 3%;
 }
 
+.description {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: lightsalmon;
+    padding-top: 25px;
+}
+
 /* .stroke {
     color: black;
     -webkit-text-fill-color: rgba(0,0,225,0);
@@ -45,18 +54,33 @@ h1 {
     -webkit-text-stroke-color: white;
 } */
 
-.container {
+.form-inline {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding-top: 15%;
+    padding-top: 5%;
+}
+
+.form-control {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 60%;
+    padding: 10px;
 }
 
 #search {
-    width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    display: inline-block;
-    border: none;
-    background: #f1f1f1;
+    width: 60%;
+    padding: 10px;
+    padding-left: 2%;
+}
+
+.btn {
+    cursor: pointer;
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 4px;
+    display: block;
+    font-size: 14px;
+    padding-left: 1%;
 }
