@@ -4,6 +4,8 @@ const db = require('../models');
 
 // Base URL is now localhost:3000/api/v1/user
 
+console.log('userROUTES is connected...');
+
 // INDEX
 router.get('/api/v1/user', (request, response) => {
   db.User.find({}, (error, allUsers) => {
