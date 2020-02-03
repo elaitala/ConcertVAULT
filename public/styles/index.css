@@ -8,6 +8,10 @@
     outline: 0;
 }
 
+.navbar {
+    color: white;
+}
+
 .navbar-brand {
     font-family: 'Patua One', cursive;
     color: white;
@@ -37,6 +41,10 @@ h1 {
     font-size: 600%;
     padding-top: 5%;
     padding-left: 3%;
+}
+
+a {
+    color: white;
 }
 
 .stroke {
