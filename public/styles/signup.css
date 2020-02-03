@@ -39,15 +39,35 @@ h1 {
 
 img {
     width: 100%;
+    border-radius: 9px 0 0 9px;
+}
+
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.col-md-6 {
+    padding-left: 0;
+    padding-right: 0;
 }
 
 #form {
-    background: rgba(0,0,225,0);
+    background-color: rgba(0,0,0,.4);
+    border-radius: 0 9px 9px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,.3);
+    height: 56.2vh;
 }
 
 h5 {
     color: white;
     font-size: 25px;
+    padding-top: 19%;
+    padding-left: 5%;
+}
+
+.form-group {
+    padding-left: 5%;
 }
 
 #form label {
@@ -60,7 +80,7 @@ h5 {
     border: 2px solid #f0f0f0;
     border-radius: 4px;
     display: block;
-    width: 100%;
+    width: 95%;
     padding: 10px;
     font-size: 14px;
 }
@@ -77,7 +97,7 @@ h5 {
     border-radius: 4px;
     display: block;
     font-size: 14px;
-    padding: 10px;
+    padding: 7px;
     margin-top: 20px;
     width: 40%;
 }
