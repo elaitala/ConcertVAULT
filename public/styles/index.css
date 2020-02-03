@@ -34,31 +34,32 @@ body {
 h1 {
     font-family: 'Patua One', cursive;
     color: white;
-    font-size: 400%;
+    font-size: 600%;
     padding-top: 5%;
     padding-left: 3%;
+}
+
+.stroke {
+    color: black;
+    -webkit-text-fill-color: rgba(0,0,0,.4);
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: white;
 }
 
 .description {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    color: lightsalmon;
-    padding-top: 25px;
+    color: #eb0450;
+    text-shadow: 6px 6px 18px #FFFFFF;
+    padding-top: 10%;
 }
-
-/* .stroke {
-    color: black;
-    -webkit-text-fill-color: rgba(0,0,225,0);
-    -webkit-text-stroke-width: .01px;
-    -webkit-text-stroke-color: white;
-} */
 
 .form-inline {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding-top: 5%;
+    padding-top: 3%;
 }
 
 .form-control {
@@ -82,5 +83,4 @@ h1 {
     border-radius: 4px;
     display: block;
     font-size: 14px;
-    padding-left: 1%;
 }
