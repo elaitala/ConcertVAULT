@@ -12,6 +12,10 @@ body {
     background-color: whitesmoke;
 }
 
+a {
+    color: white;
+}
+
 .navbar-brand {
     font-family: 'Patua One', cursive;
     color: black;

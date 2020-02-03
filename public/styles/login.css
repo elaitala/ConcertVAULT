@@ -8,6 +8,10 @@
     outline: 0;
 }
 
+a {
+    color: white;
+}
+
 .navbar-brand {
     font-family: 'Patua One', cursive;
     color: white;

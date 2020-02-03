@@ -14,9 +14,9 @@ router.get('/', (request, response) => {
   response.send(`<h1>Welcome to the concertVAULT API</h1>`);
 });
 
-router.get('/documentation', (request, response) => {
-  response.sendFile(__dirname + '/views/documentation.html');
-});
+// router.get('/documentation', (request, response) => {
+//   response.sendFile(__dirname + '/views/documentation.html');
+// });
 
 // router.get('/index', (request, response) => {
 //   console.log('Getting the INDEX...');
@@ -25,25 +25,39 @@ router.get('/documentation', (request, response) => {
 
 // Root (Home/Signup) Template
 router.get('/index', (request, response) => {
-  console.log('Getting the INDEX2...');
+  console.log('Getting the INDEX...');
   response.sendFile('/views/index.html', {
     root: `${__dirname}/../`
   });
 });
 
-// // GET Login Template
-// router.get('/success', (request, response) => {
-//   response.sendFile('/views/login.html', {
-//     root: `${__dirname}/../`
-//   });
-// });
+// GET Login Template
+router.get('/login', (request, response) => {
+  response.sendFile('/views/login.html', {
+    root: `${__dirname}/../`
+  });
+});
 
-// // GET Profile Template
-// router.get('/dashboard', (request, response) => {
-//   response.sendFile('/views/profile.html', {
-//     root: `${__dirname}/../`
-//   });
-// });
+// GET Profile Template
+router.get('/profile', (request, response) => {
+  response.sendFile('/views/profile.html', {
+    root: `${__dirname}/../`
+  });
+});
+
+// GET Signup Template
+router.get('/signup', (request, response) => {
+  response.sendFile('/views/signup.html', {
+    root: `${__dirname}/../`
+  });
+});
+
+// GET Signup Template
+router.get('/addconcert', (request, response) => {
+  response.sendFile('/views/addconcert.html', {
+    root: `${__dirname}/../`
+  });
+});
 
 
 module.exports = router;
