@@ -19,6 +19,7 @@ a {
 .navbar-nav {
     list-style-type: none;
     float: right;
+    text-shadow: 2px 2px 6px #000000;
 }
 
 .navbar-nav > li {
@@ -37,9 +38,17 @@ h1 {
     font-family: 'Patua One', cursive;
     color: white;
     font-size: 300%;
-    padding-top: 5%;
+    padding-top: 8%;
     padding-left: 3%;
     padding-bottom: 3%;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 4%;
+    padding-bottom: 15%;
 }
 
 img {
@@ -61,7 +70,8 @@ img {
     background-color: rgba(0,0,0,.4);
     border-radius: 0 9px 9px 0;
     box-shadow: 0 2px 10px rgba(0,0,0,.3);
-    height: 56.2vh;
+    height: 100%;
+    padding: 30px 30px;
 }
 
 h5 {
@@ -76,7 +86,7 @@ h5 {
 }
 
 #form label {
-    color: #777;
+    color: #FFFFFF;
     display: block;
     margin-bottom: 5px;
 }
@@ -85,7 +95,7 @@ h5 {
     border: 2px solid #f0f0f0;
     border-radius: 4px;
     display: block;
-    width: 95%;
+    width: 100%;
     padding: 10px;
     font-size: 14px;
 }
@@ -95,9 +105,14 @@ h5 {
     border-color: #777;
 }
 
+.btn {
+    float: right;
+    padding-right: 5%;
+}
+
 #form button {
     cursor: pointer;
-    background-color: #3498db;
+    background-color: #1eb954;
     color: #fff;
     border-radius: 4px;
     display: block;
