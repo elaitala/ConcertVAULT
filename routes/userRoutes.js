@@ -7,7 +7,7 @@ const db = require('../models');
 console.log('userROUTES is connected...');
 
 // INDEX
-router.get('/api/v1/user', (request, response) => {
+router.get('/', (request, response) => {
   db.User.find({}, (error, allUsers) => {
     if (error) {
       // Always RETURN to exit
@@ -25,7 +25,8 @@ router.get('/api/v1/user', (request, response) => {
   });
 });
 // CREATE
-router.post('/api/v1/user', (request, response) => {
+router.post('/', (request, response) => {
+  console.log('CREATE working...');
   db.User.create(request.body, (error, createdUser) => {
     if(error) {
       // Always RETURN to exit
@@ -43,7 +44,7 @@ router.post('/api/v1/user', (request, response) => {
 });
 
 // SHOW -> ID === user ID
-router.get('/api/v1/user/:id', (request, response) => {
+router.get('/:id', (request, response) => {
   // response.json({message: 'User SHOW', params: request.params});
   db.User.findById(request.params.id, (error, foundUser) => {
     if(error) {
@@ -62,7 +63,7 @@ router.get('/api/v1/user/:id', (request, response) => {
 });
 // UPDATE -> ID === user ID
 // Will receive JSON for update in request.body
-router.put('/api/v1/user/:id', (request, response) => {
+router.put('/:id', (request, response) => {
   // response.json({
   //   message: 'User UPDATE',
   //   params: request.params,
@@ -90,7 +91,7 @@ router.put('/api/v1/user/:id', (request, response) => {
 });
 
 // DELETE -> ID === user ID
-router.delete('/api/v1/user/:id', (request, response) => {
+router.delete('/:id', (request, response) => {
   // response.json({message: 'USER delete', params: request.params});
   db.User.findByIdAndDelete(request.params.id, (error, deletedUser) => {
     if(error) {
