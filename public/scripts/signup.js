@@ -1,1 +1,1 @@
-console.log('Sign up for concertVAULT');
+console.log('SIGNUP is connected...');
