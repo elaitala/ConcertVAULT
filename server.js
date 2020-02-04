@@ -1,6 +1,7 @@
 // ----------------------------- EXTERNAL modules
 const express = require('express');
 const bodyParser = require('body-parser');
+const session = require('express-session');
 const bcrypt = require('bcryptjs');
 
 // ----------------------------- INTERNAL modules
@@ -18,6 +19,14 @@ const PORT = 3000;
 
 // ----------------------------- MIDDLEWARE
 app.use(bodyParser.json());
+
+// Express SESSION
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'qwertyuiop',
+  resave: false,
+  saveUninitialized: false,
+}));
+
 // logger
 app.use(utils.logger);
 // formatter
