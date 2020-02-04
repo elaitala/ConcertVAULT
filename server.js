@@ -79,7 +79,13 @@ app.post('/api/v1/login', (request, response) => {
       if(err) return response.status(400).json({error: err});
     }    
 
-    
+    request.session.currentUser = foundUser._id;
+    request.session.createdAt = new Date().toDateString();
+    request.session.user = foundUser;
+
+    console.log(request.session);
+
+    // RESPONDS with success if PWs patch
     if (passwordsMatch) {
       response.status(200).json({status: 200, message: 'Rock on with your bad self!'});
     } else {
