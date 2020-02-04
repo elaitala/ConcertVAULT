@@ -53,20 +53,20 @@ app.use('/', routes.views);
 
 // API routes
 
-app.post('/api/v1/register', async(request, response) => {
+app.post('/api/v1/user', async(request, response) => {
   const userData = request.body;
   let hash;
 
   try {
     hash = await bcrypt.hashSync(request.body.password, 10);
 
-    userData.passwrod = hash;
+    userData.password = hash;
   } catch (err) {
-    return res.status(400).json({status: 400, error:'Bummer, dude!'});
+    return response.status(400).json({status: 400, error:'1Bummer, dude!'});
   }
 
   db.User.create(userData, (err, newUser) => {
-    if (err) return response.status(400).json({error: 'Bummer, dude!'});
+    if (err) return response.status(400).json({error: '2Bummer, dude!'});
 
     response.status(200).json({status: 200, newUser});
   });
@@ -82,7 +82,7 @@ app.post('/api/v1/login', (request, response) => {
   db.User.findOne({name}, async (err, foundUser) => {
     let passwordsMatch;
     
-    if (err) return response.status(400).json({error: 'Bummer, dude!'});
+    if (err) return response.status(400).json({error: '3Bummer, dude!'});
 
     try {
       passwordsMatch = await bcrypt.compare(password, foundUser.passwoord);
