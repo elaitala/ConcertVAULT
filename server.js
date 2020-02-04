@@ -19,6 +19,10 @@ const app = express();
 const PORT = 3000;
 
 // ----------------------------- MIDDLEWARE
+// Serve STATIC assets
+app.use(express.static(`${__dirname}/public`));
+
+// BODYPARSER
 app.use(bodyParser.json());
 
 // Express SESSION
