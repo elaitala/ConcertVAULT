@@ -9,6 +9,9 @@
 }
 
 .navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
     color: white;
 }
 
@@ -41,7 +44,7 @@ h1 {
     font-family: 'Patua One', cursive;
     color: white;
     font-size: 600%;
-    padding-top: 5%;
+    padding-top: 8%;
     padding-left: 3%;
 }
 
@@ -61,35 +64,30 @@ a {
     flex-direction: row;
     justify-content: center;
     color: #eb0450;
-    text-shadow: 6px 6px 18px #FFFFFF;
+    font-weight: bolder;
+    font-size: 400;
+    text-shadow: 8px 8px 18px #FFFFFF;
     padding-top: 10%;
 }
 
 h3 {
     font-weight: bolder;
-    font-size: 300;
+    font-size: 400;
 }
 
-.form-inline {
+.form-row {
     display: flex;
     flex-direction: row;
     justify-content: center;
     padding-top: 3%;
 }
 
-.form-control {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+/* #search {
     width: 60%;
     padding: 10px;
-}
-
-#search {
-    width: 60%;
-    padding: 10px;
-    padding-left: 2%;
-}
+    text-align: right;
+    padding-right: 4%;
+} */
 
 .btn {
     cursor: pointer;
