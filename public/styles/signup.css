@@ -12,6 +12,12 @@ a {
     color: white;
 }
 
+.navbar {
+    -webkit-box-shadow: 0 8px 6px -6px #999;
+    -moz-box-shadow: 0 8px 6px -6px #999;
+    box-shadow: 0 8px 6px -6px #999;
+}
+
 .navbar-brand {
     font-family: 'Patua One', cursive;
     color: white;
@@ -37,6 +43,7 @@ body {
 h1 {
     font-family: 'Patua One', cursive;
     color: white;
+    text-shadow: 2px 2px 6px #000000;
     font-size: 300%;
     padding-top: 8%;
     padding-left: 3%;
@@ -77,12 +84,13 @@ img {
 h5 {
     color: white;
     font-size: 25px;
-    padding-top: 19%;
-    padding-left: 5%;
+    padding-top: 6%;
+    padding-left: 2%;
+    padding-bottom: 2%;
 }
 
 .form-group {
-    padding-left: 5%;
+    padding-left: 2%;
 }
 
 #form label {
