@@ -94,6 +94,13 @@ app.post('/api/v1/login', (request, response) => {
   }); 
 });
 
+app.get('./api/v1/verify', (request, response) => {
+  if(!request.session.currentUser) {
+    return response.status(401).json({error: 'Dude, is this a fake ID?'})
+  }
+  response.status(200).json(request.session.user);
+});
+
 // DOCUMENTATION route
 app.get('/api/v1', (request, response) => {
   const doc = require('./doc.json');
