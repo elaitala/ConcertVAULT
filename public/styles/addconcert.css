@@ -15,12 +15,18 @@
 
 .navbar-nav {
     list-style-type: none;
+    float: right;
 }
 
 .navbar-nav > li {
     padding-left:30px;
     padding-right:30px;
     padding-top: 15px;
+}
+
+a {
+    color: white;
+    text-shadow: 2px 2px 6px #000000;
 }
 
 body {
@@ -43,6 +49,7 @@ h1 {
     border-radius: 5px;
     box-shadow: 0 2px 10px rgba(0,0,0,.3);
     width: 800px;
+    margin-top: 5%;
 }
 
 .form {
@@ -71,7 +78,7 @@ h1 {
 
 .form button {
     cursor: pointer;
-    background-color: #3498db;
+    background-color: #1eb954;
     color: #fff;
     border-radius: 4px;
     display: block;
@@ -79,4 +86,8 @@ h1 {
     padding: 10px;
     margin-top: 20px;
     width: 40%;
+}
+
+.stop stop {
+    background-color: f37f79;
 }
