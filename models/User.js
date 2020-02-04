@@ -6,6 +6,7 @@ console.log('USER working...');
 const UserSchema = new Schema({
   username: {type: String, required: true},
   email: {type: String, required: true},
+  password: String,
   musicInterests: String,
   concerts: String
 });
