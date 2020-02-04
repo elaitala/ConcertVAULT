@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- CUSTOM CSS -->
     <link rel="stylesheet" href="/styles/addconcert.css">
+    <!-- Google Maps API -->
+    <script defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHMNvp5mo44CBUMlTD72eqo53LYdde1IA&libraries=places"></script>
     <!-- CUSTOM JS -->
-    <script defer src="/scripts/index.js"></script>
+    <script defer src="/scripts/addconcert.js"></script>
     <title>concertVAULT</title>
 </head>
 <body>
@@ -33,16 +35,24 @@
     <div class="container">
         <form class="form">
             <div class="form-group">
-                <label for="date">Date</label>
-                <input type="text" class="form-control" id="date" placeholder="Enter date">
+                <label for="example-date-input">Date</label>
+                <input class="form-control" type="date" value="2020-02-04" id="example-date-input">
             </div>
             <div class="form-group">
                 <label for="venue">Venue</label>
-                <input type="text" class="form-control" id="venue" placeholder="Enter venue">
+                <input class="form-control" id="searchTextField" type="text" placeholder="Enter a location" autocomplete="on" runat="server" />  
+                <input type="hidden" id="city2" name="city2" />
+                <input type="hidden" id="cityLat" name="cityLat" />
+                <input type="hidden" id="cityLng" name="cityLng" />
             </div>
             <div class="form-group">
                 <label for="weather">Weather</label>
-                <input type="text" class="form-control" id="weather" placeholder="How was the weather?">
+                <select class="form-control" id="weather">
+                    <option>Sunny</option>
+                    <option>Cloudy</option>
+                    <option>Rainy</option>
+                    <option>Snowy</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="concertBuddies">Concert Buddies</label>
