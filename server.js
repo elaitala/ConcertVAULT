@@ -2,6 +2,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 const bcrypt = require('bcryptjs');
 
 // ----------------------------- INTERNAL modules
@@ -22,9 +23,15 @@ app.use(bodyParser.json());
 
 // Express SESSION
 app.use(session({
+  store: new MongoStore({
+    url: process.env.MONGODB_URI || 'mongodb://localhost:27017/session-review'
+  }),
   secret: process.env.SESSION_SECRET || 'qwertyuiop',
   resave: false,
   saveUninitialized: false,
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24 * 7 * 2, // Cookie good for 2 WEEKS
+  },
 }));
 
 // logger
