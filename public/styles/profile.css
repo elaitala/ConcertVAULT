@@ -85,7 +85,9 @@ h1 {
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
     border-radius: 50%;
-    background-color: white;
+    background-image: url(../images/willie.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
     margin-left: 33%;
     margin-top: 3%;
 }
