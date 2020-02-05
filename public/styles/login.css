@@ -131,3 +131,24 @@ h5 {
     margin-top: 20px;
     width: 40%;
 }
+
+/* ALERTS for signup */
+
+.alert.error:first-of-type {
+    margin: -30px auto 10px;
+  }
+  
+  .alert.error {
+    background-color: f23fc2;
+    max-width: 680px;
+    padding: 20px;
+    margin: 0 auto 10px;
+    border: 1px solid #f23fc2;
+    border-radius: 4px;
+    color: #8c24bf;
+  }
+  
+  .input-error {
+    background-color: #f23fc2;
+    border: 2px solid #8c24bf;
+  }
