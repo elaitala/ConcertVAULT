@@ -27,7 +27,7 @@ $(document).ready(function(){
 
     $.ajax ({
         method: 'GET',
-        url: 'http://localhost:3000/profile',
+        url: 'http://localhost:3000/addconcert',
         success: onSuccess,
         error: onError,
     });
@@ -35,6 +35,8 @@ $(document).ready(function(){
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 37.78, lng: -122.44},
         zoom: 12,
+        disableDefaultUI: true,
+        zoomControl: true,
         styles: [
             {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
             {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},

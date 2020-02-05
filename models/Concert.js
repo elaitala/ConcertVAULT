@@ -5,11 +5,14 @@ const Venue = require('./Venue');
 console.log('CONCERT working...');
 
 const ConcertSchema = new Schema ({
+  artist: String,
   date: String,
-  venue: [Venue.schema],
-  setlist: String,
+  venue: String,
+  city2: String,
+  cityLat: String,
+  cityLang: String,
   weather: String,
-  friends: String
+  concertBuddies: String
   // 
 
 });
