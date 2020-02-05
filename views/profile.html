@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- CUSTOM CSS -->
     <link rel="stylesheet" href="/styles/profile.css">
+    <!-- jQuery -->
+    <script defer src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
     <!-- Google Maps API -->
     <script defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHMNvp5mo44CBUMlTD72eqo53LYdde1IA"></script>
     <!-- CUSTOM JS -->
@@ -15,7 +17,7 @@
     <title>concertVAULT</title>
 </head>
 <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/index">concertVAULT</a>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
@@ -31,7 +33,7 @@
         </ul>
     </div>
     </nav>
-    <h1>Profile</h1>
+    <h1>Username</h1>
     <div class="container">
         <div class="row" id="user">
             <div class="col-xs-12 col-md-6">
@@ -40,8 +42,8 @@
                         <image id="profileImage" />
                     </div>
                     <div class="row" id="user-info">
-                        <div class="col-md-6" id="name">
-                            <p>Name Here</p> 
+                        <div class="col-md-6" id="email">
+                            <p>Email Here</p> 
                         </div>
                         <div class="col-md-6" id="member">
                             <p>Member since </p> 
@@ -51,8 +53,8 @@
                         <div class="col-md-12" id="concert">
                             <p>Concerts</p>
                             <p></p>
-                        </div>
-                        <button class="add-concert">Add Concert</button>
+                        </div> 
+                        <button class= "btn btn-pill" id="add-concert" href="/addconcert">Add Concert</button>
                     </div>
                 </div>
             </div>
