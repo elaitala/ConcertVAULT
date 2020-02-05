@@ -64,9 +64,24 @@ router.post('/login', (request, response) => {
   }); 
 });
 
+// LOGOUT session DELETE
+router.get('/logout', (request, response) => {
+  if (!request.session.currentUser) {
+    return response.status(401).json({message: 'No backstage access!'});
+  }
+
+  request.session.destroy((err) => {
+    if (err) return response.status(400).json({err});
+    
+    response.json({status: 200});
+    // response.redirect('/login');
+  });
+});
+
+
 router.get('/verify', (request, response) => {
   if(!request.session.currentUser) {
-    return response.status(401).json({error: 'Dude, is this a fake ID?'})
+    return response.status(401).json({error: 'No backstage access!'})
   }
   response.status(200).json(request.session.user);
 });
