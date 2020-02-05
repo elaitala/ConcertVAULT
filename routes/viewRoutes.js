@@ -31,28 +31,31 @@ router.get('/index', (request, response) => {
   });
 });
 
-// GET Login Template
+// GET LOGIN Template
 router.get('/login', (request, response) => {
+  console.log('Getting the LOGIN...');
   response.sendFile('/views/login.html', {
     root: `${__dirname}/../`
   });
 });
 
-// GET Profile Template
+// GET PROFILE Template
 router.get('/profile', (request, response) => {
+  console.log('Getting the PROFILE...');
   response.sendFile('/views/profile.html', {
     root: `${__dirname}/../`
   });
 });
 
-// GET Signup Template
+// GET SIGNUP Template
 router.get('/signup', (request, response) => {
+  console.log('Getting the SIGNUP...');
   response.sendFile('/views/signup.html', {
     root: `${__dirname}/../`
   });
 });
 
-// GET Signup Template
+// GET CONCERT Template
 router.get('/addconcert', (request, response) => {
   response.sendFile('/views/addconcert.html', {
     root: `${__dirname}/../`
