@@ -15,7 +15,7 @@
     <title>concertVAULT</title>
 </head>
 <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/index">concertVAULT</a>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
@@ -48,6 +48,7 @@
             <div class="form-group">
                 <label for="weather">Weather</label>
                 <select class="form-control" id="weather">
+                    <option selected>Choose...</option>
                     <option>Sunny</option>
                     <option>Cloudy</option>
                     <option>Rainy</option>
@@ -59,7 +60,7 @@
                 <input type="text" class="form-control" id="concertBuddies" placeholder="Who did you go with?">
             </div>
             <div class="buttons">
-                <button class="stop">Press Pause</button><button class="play">Press Play</button>
+                <button class="btn btn-pill" id="play">Press Play</button>
             </div>
         </form>
     </div>

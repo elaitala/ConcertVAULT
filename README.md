@@ -19,7 +19,3 @@ The USER will then be taken to the profile page. There they will see their avata
 ## Add Concert Page
 
 The USER will be shown a form with fields to fill out to remember their concert. The fields will be date, venue, weather, concert buddies. The USER will push the “press play” button to submit that concert. The USER will also be able to navigate to the landing screen or logout. This information will now appear on the profile page and a pin will now drop on the map showing the location.
-
-
-
-
