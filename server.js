@@ -52,71 +52,7 @@ app.use(express.static(__dirname + '/public'));
 app.use('/', routes.views);
 
 // API routes
-
-app.post('/api/v1/register', async(request, response) => {
-  const userData = request.body;
-  let hash;
-
-  try {
-    hash = await bcrypt.hashSync(request.body.password, 10);
-
-    userData.passwrod = hash;
-  } catch (err) {
-    return res.status(400).json({status: 400, error:'Bummer, dude!'});
-  }
-
-  db.User.create(userData, (err, newUser) => {
-    if (err) return response.status(400).json({error: 'Bummer, dude!'});
-
-    response.status(200).json({status: 200, newUser});
-  });
-});
-
-app.post('/api/v1/login', (request, response) => {
-  // Find user by EMAIL and compare the USER PW on record with supplied PW
-  // IF match, send SUCCESS, else send ERROR
-
-  // Pull USER data out of REQUEST
-  const {name, email, password} = request.body;
-
-  db.User.findOne({name}, async (err, foundUser) => {
-    let passwordsMatch;
-    
-    if (err) return response.status(400).json({error: 'Bummer, dude!'});
-
-    try {
-      passwordsMatch = await bcrypt.compare(password, foundUser.passwoord);
-    } catch (err) {
-      if(err) return response.status(400).json({error: err});
-    }    
-
-    request.session.currentUser = foundUser._id;
-    request.session.createdAt = new Date().toDateString();
-    request.session.user = foundUser;
-
-    console.log(request.session);
-
-    // RESPONDS with success if PWs patch
-    if (passwordsMatch) {
-      response.status(200).json({status: 200, message: 'Rock on with your bad self!'});
-    } else {
-    response.status(400).json({status: 400, error: 'Dude, is this a fake ID?'});
-    }
-  }); 
-});
-
-app.get('./api/v1/verify', (request, response) => {
-  if(!request.session.currentUser) {
-    return response.status(401).json({error: 'Dude, is this a fake ID?'})
-  }
-  response.status(200).json(request.session.user);
-});
-
-// DOCUMENTATION route
-app.get('/api/v1', (request, response) => {
-  const doc = require('./doc.json');
-  response.json(doc);
-});
+app.use('/api/v1', routes.api);
 
 // USER routes
 app.use('/api/v1/user', routes.user);
