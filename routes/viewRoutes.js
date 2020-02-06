@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
+// const path = require('path');
 
 // Base URL is now localhost:3000/
 
@@ -45,6 +45,8 @@ router.get('/profile', (request, response) => {
   response.sendFile('/views/profile.html', {
     root: `${__dirname}/../`
   });
+  console.log('Current User:')
+  console.log(request.session.currentUser);
 });
 
 // GET SIGNUP Template

@@ -1,6 +1,7 @@
 console.log('LOGIN is connected...');
 
 const form = document.getElementById('loginForm');
+// let loggedInUser = '';
 
 // SUBMIT event listener
 form.addEventListener('submit', handleLoginSubmit);
@@ -49,7 +50,7 @@ function handleLoginSubmit(event) {
     }
 
     if (formIsValid) {
-      userData[input.name] = input.value;
+      userData[input.username] = input.value;
     }
   });
 
@@ -69,11 +70,12 @@ function handleLoginSubmit(event) {
       .then(console.log('Got this far...2'))
       .then((dataObj) => {
         console.log(dataObj);
-        // window.location = '/profile';
+        // loggedInUser = username;
+        window.location = '/profile';
       })
       .catch((err) => console.log(err));
   }
-}
+};
 
 
 

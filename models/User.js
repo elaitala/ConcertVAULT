@@ -28,7 +28,10 @@ const UserSchema = new Schema({
   },
   password: String,
   musicInterests: String,
-  concerts: String
+  concerts: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Concert'
+  }]
 }, {timestamps: true});
 
 const User = mongoose.model('User', UserSchema);
