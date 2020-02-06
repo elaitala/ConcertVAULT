@@ -8,7 +8,7 @@ console.log('userROUTES is connected...');
 
 // INDEX
 router.get('/', (request, response) => {
-  db.User.findOne({_id:request.session.currentUser}, (error, allUsers) => {
+  db.User.findOne({_id:request.session.currentUser}).populate('concerts').exec((error, allUsers) => {
     if (error) {
       // Always RETURN to exit
       return response

@@ -99,6 +99,7 @@ router.get('/logout', (request, response) => {
   });
 });
 
+// VERIFY session
 router.get('/verify', (request, response) => {
   console.log('Inside the VERIFY...');
   

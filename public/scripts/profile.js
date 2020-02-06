@@ -68,11 +68,34 @@ function renderProfile(dataObj) {
 
     const concerts = document.getElementById('concerts');
 
-    concerts.innerHTML = "";
-    concerts.innerHTML = `Concerts: <br> ${dataObj.data.concerts}`;
+    // concerts.innerHTML = "";
+    // concerts.innerHTML = `Concerts: <br> ${dataObj.data.concerts[0].artist}`;
+
+    // fetch('api/v1/concerts', {
+    //     method: 'GET',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     //   'credentials': 'include',
+    //     },
+    //     body: JSON.stringify(userData),
+    //   })
+    concertList(dataObj.data.concerts);
+
+    function concertList(concerts) {
+        concerts.forEach(concert =>
+            $('#concerts').append(
+                `<li>${concert.artist}</li>`
+            ))
+    }
+
+};
+
+// Fire DELETE user
+const deleteUser = document.getElementById('delete');
 
 
-}
+
+
 
 /* -------- Google Maps Marker -------- */
 $(document).ready(function(){
@@ -101,6 +124,11 @@ $(document).ready(function(){
     const onError = (error, errorText, errorCode) => {
         console.log({ error })
     };
+
+
+
+
+// Render MAP data
 
     $.ajax ({
         method: 'GET',
