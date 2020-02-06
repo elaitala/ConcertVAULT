@@ -59,6 +59,7 @@ router.get('/signup', (request, response) => {
 
 // GET CONCERT Template
 router.get('/addconcert', (request, response) => {
+  console.log('Getting the CONCERTS...');
   response.sendFile('/views/addconcert.html', {
     root: `${__dirname}/../`
   });
