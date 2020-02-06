@@ -74,7 +74,7 @@ function renderProfile(dataObj) {
 
 }
 
-
+/* -------- Google Maps Marker -------- */
 $(document).ready(function(){
     console.log("Lets find those venues!");
 
@@ -109,6 +109,7 @@ $(document).ready(function(){
         error: onError,
     });
 
+/* -------- Google Maps -------- */
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 37.78, lng: -122.44},
         zoom: 12,
@@ -196,5 +197,34 @@ $(document).ready(function(){
             ]
         });
     });
+
+/* -------- User Logout -------- */
+const logout = document.getElementById('logout');
+
+logout.addEventListener('click', (event) => {
+    event.preventDefault();
+    fetch('/logout', {
+        method: 'DELETE',
+    })
+        .then((dataStream) => dataStream.json())
+        .then((data) => window.location = '/login')
+        .catch((error) => console.log(error))
+});
+
+/* -------- Delete User -------- */
+const deleteUser = document.getElementById('delete');
+
+deleteUser.addEventListener('click', (event) => {
+    event.preventDefault();
+    fetch('api/v1/user/delete', {
+        method: 'DELETE',
+    })
+        .then((dataStream) => dataStream.json())
+        .then((data) => { 
+        // window.location = '/index';
+        console.log(data)
+    })
+        .catch((error) => console.log(error))
+});
 
 
