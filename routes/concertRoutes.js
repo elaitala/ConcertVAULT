@@ -46,6 +46,7 @@ router.post('/', (request, response) => {
         return console.log(err)
       }
       foundUser.concerts.push(responseObj.data._id);
+      // foundUser.concerts.push(responseObj.data.artist);
       foundUser.save();
     })
     console.log('Created new CONCERT and saved ID to USER')
