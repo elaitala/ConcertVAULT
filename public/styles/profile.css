@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css?family=Patua+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    outline: 0;
+}
+
+/* -------- Navbar Styling -------- */
+.navbar {
+    width: 100%;
+    top: 0;
+    -webkit-box-shadow: 0 8px 6px -6px #999;
+    -moz-box-shadow: 0 8px 6px -6px #999;
+    box-shadow: 0 8px 6px -6px #999;
+}
+
+.navbar-brand {
+    font-family: 'Patua One', cursive;
+    color: white;
+}
+.navbar-nav {
+    list-style-type: none;
+    float: right;
+}
+
+.navbar-nav > li {
+    padding-left:30px;
+    padding-right:30px;
+    padding-top: 15px;
+}
+
+.dropdown-menu {
+    background-color: rgba(0,0,0,.6);
+    text-shadow: 2px 2px 6px #000000;
+    font-family: 'Noto Sans', cursive;
+    padding-left: 5px;
+}
+
+body {
+    background: rgb(131,58,180);
+    background: radial-gradient(circle, rgba(252,176,69,1) 0%, rgba(253,29,29,1) 50%, rgba(131,58,180,1) 100%);
+    font-family: 'Noto Sans SC', sans-serif;
+}
+
+
+a {
+    color: white;
+    text-shadow: 2px 2px 6px #000000;
+}
+
+h1 {
+    font-family: 'Patua One', cursive;
+    color: white;
+    text-shadow: 2px 2px 6px #000000;
+    font-size: 400%;
+    padding-top: 5%;
+    padding-left: 3%;
+}
+
+/* -------- Profile Section Styling -------- */
+.container {
+    font-family: 'Noto Sans', cursive;
+}
+
+#user {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 4%;
+    padding-bottom: 15%;
+}
+
+
+#profile {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.8);
+    color: white;
+    border-radius: 9px;
+    box-shadow: 0 10px 20px rgba(0,0,0,.8);
+}
+
+#profileImage {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    background-image: url(../images/willie.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 33%;
+    margin-top: 3%;
+}
+
+#updateProfile {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #1eb954;
+    color: #fff;
+    border-radius: 20px;
+    margin-left: 34%;
+    padding: 5px;
+    margin-top: 10px;
+    width: 25%;
+    right: 8%;
+}
+
+#user-info {
+    display: flex;
+    margin-top: 6%;
+    margin-left: 3%;
+}
+
+#email {
+    font-family: 'Patua One', cursive;
+    font-size: x-large;
+}
+
+#member {
+    font-family: 'Patua One', cursive;
+    font-size: x-large;
+}
+
+#concerts {
+    font-size: 150%;
+    display: flex;
+    margin-top: 6%;
+    margin-left: 6%;
+    margin-bottom: 5%;
+}
+
+#add-concert {
+    cursor: pointer;
+    background-color: #1eb954;
+    color: #fff;
+    border-radius: 20px;
+    display: block;
+    font-size: 14px;
+    padding: 10px;
+    margin-top: 20px;
+    width: 40%;
+    right: 8%;
+    bottom: 3%;
+    position: absolute;
+}
+
+/* -------- Google Maps Styling -------- */
+#map {
+    height: 600px;
+    border-radius: 9px;
+    box-shadow: 0 10px 20px rgba(0,0,0,.8);
+}
+
+/* -------- Footer -------- */
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    color: white;
+    font-family: 'Patua One', cursive;
+}

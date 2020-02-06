@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="/styles/addconcert.css">
+    <!-- Google Maps API -->
+    <script defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHMNvp5mo44CBUMlTD72eqo53LYdde1IA&libraries=places"></script>
+    <!-- CUSTOM JS -->
+    <script defer src="/scripts/addconcert.js"></script>
+    <title>concertVAULT</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/index">concertVAULT</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+        <!-- <li class="nav-item">
+            <a class="nav-link" href="/signup">Sign Up</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+            </li> -->
+        <li class="nav-item">
+            <a class="nav-link" href="/profile">Profile</a>
+        </li>
+        </ul>
+    </div>
+    </nav>
+    <h1>Enter Concert Information</h1>
+    <div class="container">
+        <form class="form" id="addConcert">
+            <div class="form-group">
+                <label for="artist">Artist</label>
+                <input class="form-control" type="text" id="artist" placeholder="Who did you see?">
+            </div>
+            <div class="form-group">
+                <label for="example-date-input">Date</label>
+                <input class="form-control" type="date" value="2020-02-06" id="example-date-input">
+            </div>
+            <div class="form-group">
+                <label for="venue">Venue</label>
+                <input class="form-control" id="searchTextField" type="text" placeholder="Enter a location" autocomplete="on" runat="server" />  
+                <input type="hidden" id="city2" name="city2" />
+                <input type="hidden" id="cityLat" name="cityLat" />
+                <input type="hidden" id="cityLng" name="cityLng" />
+            </div>
+            <div class="form-group">
+                <label for="weather">Weather</label>
+                <select class="form-control" id="weather">
+                    <option selected>Choose...</option>
+                    <option>Sunny</option>
+                    <option>Cloudy</option>
+                    <option>Rainy</option>
+                    <option>Snowy</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="concertBuddies">Concert Buddies</label>
+                <input type="text" class="form-control" id="concertBuddies" placeholder="Who did you go with?">
+            </div>
+            <div class="buttons">
+                <button type="submit" class="btn btn-pill" id="play">Press Play</button>
+            </div>
+        </form>
+    </div>
+    <footer class="footer">
+        <div>
+            <span>&copy; concertVAULT 2020</span>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
