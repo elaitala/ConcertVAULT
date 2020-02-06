@@ -3,11 +3,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
-const bcrypt = require('bcryptjs');
+// const bcrypt = require('bcryptjs');
 
 // ----------------------------- INTERNAL modules
 
-const db = require('./models');
+// const db = require('./models');
 const routes = require('./routes');
 const utils = require('./middleware/utils');
 // const formatter = require('./middleware/formatter');

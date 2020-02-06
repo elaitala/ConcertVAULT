@@ -1,3 +1,72 @@
+console.log('Pulling the PROFILE...');
+
+// const profile = document.getElementById('user');
+
+// APP state
+let userProfile = '';
+// console.log(currentUser);
+
+// const username = document.getElementById('user').value;
+// // const password = document.getElementById('password').value;
+  
+// const userData = {
+//     // email: email,
+//     username: username,
+//     // password: password,
+// }
+
+
+function getUser() {
+    console.log('Getting current USER...', userProfile)
+    fetch('api/v1/user', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'credentials': 'include',
+      },
+    //   body: JSON.stringify(userData),
+    })
+      .then(console.log('Got this far...1'))
+      .then((dataStream) => dataStream.json())
+      // .then(console.log('Got this far...2'))
+      .then((dataObj) => {
+        
+        renderProfile(dataObj) 
+
+      })
+      .catch((err) => console.log(err));
+    //   console.log(userProfile);
+    //   console.log(dataObj.data.username);
+
+  };
+
+  getUser();
+
+  console.log(userProfile);
+//   console.log(profileEmail);
+//   console.log(profileDate);
+
+function renderProfile(dataObj) {
+    console.log(dataObj.data.username);
+    console.log('Rendering...)');
+    const title = document.getElementById('title');
+
+    title.innerHTML = "";
+    title.innerHTML = `${dataObj.data.username}`;
+
+    const email = document.getElementById('email');
+
+    email.innerHTML = "";
+    email.innerHTML = `Email: <br>${dataObj.data.email}`;
+
+    const since = document.getElementById('member');
+
+    since.innerHTML = "";
+    since.innerHTML = `Member since: <br>${new Date(dataObj.data.createdAt).toUTCString().slice(7, 16)}`;
+
+}
+
+
 $(document).ready(function(){
     console.log("Lets find those venues!");
 

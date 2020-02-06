@@ -64,8 +64,29 @@ router.post('/login', (request, response) => {
   }); 
 });
 
+// Get PROFILE
+router.get('/profile', (request, response) => {
+  console.log('Inside PROFILE...');
+  
+  if (!request.session.currentUser) {
+    // return response.status(401).json({message: 'No backstage access!'});
+    response.redirect('/login');
+  }
+
+  response.sendFile('/views/profile.html', {
+    root: `${__dirname}/../`
+  });
+});
+
+router.get('/api/v1', (request, response) => {
+  response.json({message: "Caught in the Views Routes"})
+})
+
+
 // LOGOUT session DELETE
 router.get('/logout', (request, response) => {
+  console.log('Inside the LOGOUT...');
+  
   if (!request.session.currentUser) {
     return response.status(401).json({message: 'No backstage access!'});
   }
@@ -78,8 +99,9 @@ router.get('/logout', (request, response) => {
   });
 });
 
-
 router.get('/verify', (request, response) => {
+  console.log('Inside the VERIFY...');
+  
   if(!request.session.currentUser) {
     return response.status(401).json({error: 'No backstage access!'})
   }
@@ -88,7 +110,7 @@ router.get('/verify', (request, response) => {
 
 // DOCUMENTATION route
 router.get('/', (request, response) => {
-  const doc = require('./doc.json');
+  const doc = require('/doc.json');
   response.json(doc);
 });
 

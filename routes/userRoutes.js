@@ -8,7 +8,7 @@ console.log('userROUTES is connected...');
 
 // INDEX
 router.get('/', (request, response) => {
-  db.User.find({}, (error, allUsers) => {
+  db.User.findOne({_id:request.session.currentUser}, (error, allUsers) => {
     if (error) {
       // Always RETURN to exit
       return response
@@ -18,7 +18,7 @@ router.get('/', (request, response) => {
     const responseObj = {
       status: 200,
       data: allUsers,
-      length: allUsers.length,
+      // length: allUsers.length,
       requestedAt: new Date().toLocaleString()
     };
     response.status(200).json(responseObj);
