@@ -10,7 +10,7 @@ const ConcertSchema = new Schema ({
   venue: String,
   city2: String,
   cityLat: String,
-  cityLang: String,
+  cityLng: String,
   weather: String,
   concertBuddies: String
   // 
