@@ -91,9 +91,9 @@ router.put('/:id', (request, response) => {
 });
 
 // DELETE -> ID === user ID
-router.delete('/:id', (request, response) => {
+router.delete('/delete', (request, response) => {
   // response.json({message: 'USER delete', params: request.params});
-  db.User.findByIdAndDelete(request.params.id, (error, deletedUser) => {
+  db.User.findByIdAndDelete(request.session.currentUser, (error, deletedUser) => {
     if(error) {
       // Always RETURN to exit
       return response

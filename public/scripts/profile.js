@@ -10,7 +10,7 @@ let userProfile = '';
 
 // const username = document.getElementById('user').value;
 // // const password = document.getElementById('password').value;
-  
+
 // const userData = {
 //     // email: email,
 //     username: username,
@@ -21,30 +21,30 @@ let userProfile = '';
 function getUser() {
     console.log('Getting current USER...', userProfile)
     fetch('api/v1/user', {
-      method: 'GET',
-      headers: {
+        method: 'GET',
+        headers: {
         'Content-Type': 'application/json',
         'credentials': 'include',
-      },
+    },
     //   body: JSON.stringify(userData),
     })
-      .then(console.log('Got this far...1'))
-      .then((dataStream) => dataStream.json())
+        .then(console.log('Got this far...1'))
+        .then((dataStream) => dataStream.json())
       // .then(console.log('Got this far...2'))
-      .then((dataObj) => {
+        .then((dataObj) => {
         
         renderProfile(dataObj) 
 
-      })
-      .catch((err) => console.log(err));
+    })
+        .catch((err) => console.log(err));
     //   console.log(userProfile);
     //   console.log(dataObj.data.username);
 
-  };
+};
 
-  getUser();
+getUser();
 
-  console.log(userProfile);
+console.log(userProfile);
 //   console.log(profileEmail);
 //   console.log(profileDate);
 
@@ -97,7 +97,7 @@ const deleteUser = document.getElementById('delete');
 
 
 
-
+/* -------- Google Maps Marker -------- */
 $(document).ready(function(){
     console.log("Lets find those venues!");
 
@@ -137,6 +137,7 @@ $(document).ready(function(){
         error: onError,
     });
 
+/* -------- Google Maps -------- */
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 37.78, lng: -122.44},
         zoom: 12,
@@ -224,5 +225,34 @@ $(document).ready(function(){
             ]
         });
     });
+
+/* -------- User Logout -------- */
+const logout = document.getElementById('logout');
+
+logout.addEventListener('click', (event) => {
+    event.preventDefault();
+    fetch('/logout', {
+        method: 'DELETE',
+    })
+        .then((dataStream) => dataStream.json())
+        .then((data) => window.location = '/login')
+        .catch((error) => console.log(error))
+});
+
+/* -------- Delete User -------- */
+const deleteUser = document.getElementById('delete');
+
+deleteUser.addEventListener('click', (event) => {
+    event.preventDefault();
+    fetch('api/v1/user/delete', {
+        method: 'DELETE',
+    })
+        .then((dataStream) => dataStream.json())
+        .then((data) => { 
+        // window.location = '/index';
+        console.log(data)
+    })
+        .catch((error) => console.log(error))
+});
 
 
