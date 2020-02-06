@@ -242,7 +242,9 @@ deleteUser.addEventListener('click', (event) => {
     })
         .then((dataStream) => dataStream.json())
         .then((data) => { 
+
         window.location = '/index';
+
         console.log(data)
     })
         .catch((error) => console.log(error))
