@@ -4,7 +4,7 @@ const db = require('../models');
 
 // Base URL is now localhost:3000/api/v1/concert
 // INDEX
-router.get('/api/v1/concert', (request, response) => {
+router.get('/', (request, response) => {
   db.Concert.find({})
     .populate('concertGoers')
     .exec((error, allConcerts) => {
@@ -24,7 +24,7 @@ router.get('/api/v1/concert', (request, response) => {
   });
 });
 // CREATE
-router.post('/api/v1/concert', (request, response) => {
+router.post('/', (request, response) => {
   db.Concert.create(request.body, (error, createdConcert) => {
     if(error) {
       // Always RETURN to exit
@@ -42,7 +42,7 @@ router.post('/api/v1/concert', (request, response) => {
 });
 
 // SHOW -> ID === concert ID
-router.get('/api/v1/concert/:id', (request, response) => {
+router.get('/:id', (request, response) => {
   db.Concert.findById(request.params.id)
     .populate('concertGoers')
     .exec((error, foundConcert) => {
@@ -62,7 +62,7 @@ router.get('/api/v1/concert/:id', (request, response) => {
 });
 // UPDATE -> ID === concert ID
 // Will receive JSON for update in request.body
-router.put('/api/v1/concert/:id', (request, response) => {
+router.put('/:id', (request, response) => {
   db.Concert.findByIdAndUpdate(
     request.params.id,
     request.body,
@@ -85,7 +85,7 @@ router.put('/api/v1/concert/:id', (request, response) => {
 });
 
 // SHOW async refactor
-router.get('/api/v1/concert/:id/async', async(request, response) => {
+router.get('/:id/async', async(request, response) => {
   try{
     const foundConcert = await (await db.Concert.findById(request.params.id)).populate(
       'concertGoer'
@@ -104,7 +104,7 @@ router.get('/api/v1/concert/:id/async', async(request, response) => {
 });
 
 // UPDATE async refactor
-router.put('/api/v1/concert/:id', async(request, response) => {
+router.put('/:id', async(request, response) => {
   try{
     const updatedConcert = await db.Concert.findByIdAndUpdate(
       request.params.id,
@@ -125,7 +125,7 @@ router.put('/api/v1/concert/:id', async(request, response) => {
 });
 
 // DELETE -> ID === concert ID
-router.delete('/api/v1/concert/:id', (request, response) => {
+router.delete('/:id', (request, response) => {
   db.Concert.findByIdAndDelete(request.params.id, (error, deletedConcert) => {
     if(error) {
       // Always RETURN to exit
@@ -146,7 +146,7 @@ router.delete('/api/v1/concert/:id', (request, response) => {
 // VENUE routes
 // Updates CONCERT to add VENUE
 
-router.put('/api/v1/concert/:id/venues', async(request, response) => {
+router.put('/:id/venues', async(request, response) => {
   try{
     const foundConcert = await db.Concert.findById(request.params.id);
     foundConcert.venue.push(request.body);
