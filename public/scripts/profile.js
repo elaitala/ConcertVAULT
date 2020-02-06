@@ -1,6 +1,8 @@
 console.log('Pulling the PROFILE...');
 
-// const profile = document.getElementById('user');
+
+
+const addConcert = document.getElementById('add-concert');
 
 // APP state
 let userProfile = '';
@@ -52,7 +54,7 @@ function renderProfile(dataObj) {
     const title = document.getElementById('title');
 
     title.innerHTML = "";
-    title.innerHTML = `${dataObj.data.username}`;
+    title.innerHTML = `Rock on, ${dataObj.data.username}!`;
 
     const email = document.getElementById('email');
 
@@ -63,6 +65,12 @@ function renderProfile(dataObj) {
 
     since.innerHTML = "";
     since.innerHTML = `Member since: <br>${new Date(dataObj.data.createdAt).toUTCString().slice(7, 16)}`;
+
+    const concerts = document.getElementById('concerts');
+
+    concerts.innerHTML = "";
+    concerts.innerHTML = `Concerts: <br> ${dataObj.data.concerts}`;
+
 
 }
 

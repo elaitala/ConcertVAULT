@@ -32,13 +32,23 @@ router.post('/', (request, response) => {
         .status(500)
         .json({message: 'Broke a string, huh?', error: error});
     }
-
+    
     const responseObj = {
       status: 200,
       data: createdConcert,
       requestedAt: new Date().toLocaleString()
     };
     response.status(200).json(responseObj);
+
+    currentUser = request.session.currentUser;
+    db.User.findById(request.session.currentUser, (err, foundUser) => {
+      if (err) {
+        return console.log(err)
+      }
+      foundUser.concerts.push(responseObj.data._id);
+      foundUser.save();
+    })
+    console.log('Created new CONCERT and saved ID to USER')
   });
 });
 
@@ -68,6 +78,15 @@ router.put('/:id', (request, response) => {
     request.params.id,
     request.body,
     {new: true},
+
+    // const currentUser = request.session.currentUser
+    // db.User.findById(currentUser, function() {
+
+    // })
+
+
+
+
     (error, updatedConcert) => {
       if(error) {
         // Always RETURN to exit

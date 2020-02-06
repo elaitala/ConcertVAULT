@@ -1,4 +1,4 @@
-console.log('ADDCONCERT is connected...');
+console.log('Add CONCERT is connected...');
 
 const form = document.getElementById('addConcert');
 
@@ -9,6 +9,45 @@ form.addEventListener('submit', handleConcertSubmit);
 function handleConcertSubmit(event) {
     let formIsValid = true;
     event.preventDefault();
+
+    // Find USER ID
+    // let userProfile = '';
+    
+    function getUser() {
+        // console.log('Getting current USER...', userProfile)
+        fetch('api/v1/user', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'credentials': 'include',
+          },
+        })
+          .then(console.log('Got this far...1'))
+          .then((dataStream) => dataStream.json())
+          .then((dataObj) => {
+            console.log('Marco is cool');
+            renderProfile(dataObj);
+            // newConcert();
+    
+          })
+          .catch((err) => console.log(err));    
+      };
+    
+      getUser();
+    
+      console.log('User ID:')
+    //   console.log(userProfile);
+    //   console.log(profileEmail);
+    //   console.log(profileDate);
+    
+    function renderProfile(dataObj) {
+        console.log(dataObj.data.username);
+        console.log('Rendering...)');
+       
+    };
+
+
+    function newConcert() {
 
     const artist = document.getElementById('artist').value;
     const date = document.getElementById('example-date-input').value;
@@ -54,11 +93,18 @@ function handleConcertSubmit(event) {
         })
             .then((dataStream) => dataStream.json())
             .then((dataObj) => {
-                console.log(dataObj);
+                console.log(dataObj.data._id);
+                
                 // window.location = '/profile';
             })
             .catch((error) => console.log(error));
+        } 
     }
+    newConcert();
+
+ 
+
+
 };
 
 
