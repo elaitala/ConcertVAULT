@@ -8,7 +8,7 @@ let userProfile = '';
 
 // const username = document.getElementById('user').value;
 // // const password = document.getElementById('password').value;
-  
+
 // const userData = {
 //     // email: email,
 //     username: username,
@@ -19,30 +19,30 @@ let userProfile = '';
 function getUser() {
     console.log('Getting current USER...', userProfile)
     fetch('api/v1/user', {
-      method: 'GET',
-      headers: {
+        method: 'GET',
+        headers: {
         'Content-Type': 'application/json',
         'credentials': 'include',
-      },
+    },
     //   body: JSON.stringify(userData),
     })
-      .then(console.log('Got this far...1'))
-      .then((dataStream) => dataStream.json())
+        .then(console.log('Got this far...1'))
+        .then((dataStream) => dataStream.json())
       // .then(console.log('Got this far...2'))
-      .then((dataObj) => {
+        .then((dataObj) => {
         
         renderProfile(dataObj) 
 
-      })
-      .catch((err) => console.log(err));
+    })
+        .catch((err) => console.log(err));
     //   console.log(userProfile);
     //   console.log(dataObj.data.username);
 
-  };
+};
 
-  getUser();
+getUser();
 
-  console.log(userProfile);
+console.log(userProfile);
 //   console.log(profileEmail);
 //   console.log(profileDate);
 
