@@ -5,11 +5,14 @@ const Schema = mongoose.Schema;
 console.log('CONCERT working...');
 
 const ConcertSchema = new Schema ({
+  artist: String,
   date: String,
   venue: String,
-  setlist: String,
+  city2: String,
+  cityLat: String,
+  cityLng: String,
   weather: String,
-  friends: String
+  concertBuddies: String
   // 
 
 });

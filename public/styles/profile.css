@@ -32,6 +32,13 @@
     padding-top: 15px;
 }
 
+.dropdown-menu {
+    background-color: rgba(0,0,0,.6);
+    text-shadow: 2px 2px 6px #000000;
+    font-family: 'Noto Sans', cursive;
+    padding-left: 5px;
+}
+
 body {
     background: rgb(131,58,180);
     background: radial-gradient(circle, rgba(252,176,69,1) 0%, rgba(253,29,29,1) 50%, rgba(131,58,180,1) 100%);
@@ -85,9 +92,32 @@ h1 {
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
     border-radius: 50%;
-    background-color: white;
+    background-image: url(../images/willie.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
     margin-left: 33%;
     margin-top: 3%;
+}
+
+#updateProfile {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #1eb954;
+    color: #fff;
+    border-radius: 20px;
+    margin-left: 34%;
+    padding: 5px;
+    margin-top: 10px;
+    width: 25%;
+    right: 8%;
+}
+
+#user-info {
+    display: flex;
+    margin-top: 6%;
+    margin-left: 3%;
 }
 
 #email {
@@ -98,12 +128,6 @@ h1 {
 #member {
     font-family: 'Patua One', cursive;
     font-size: x-large;
-}
-
-#user-info {
-    display: flex;
-    margin-top: 6%;
-    margin-left: 3%;
 }
 
 #concert {
