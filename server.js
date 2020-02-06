@@ -16,7 +16,7 @@ const utils = require('./middleware/utils');
 const app = express();
 
 // ----------------------------- CONFIGURATION variables
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // ----------------------------- MIDDLEWARE
 // Serve STATIC assets
