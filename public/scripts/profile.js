@@ -90,13 +90,6 @@ function renderProfile(dataObj) {
 
 };
 
-// Fire DELETE user
-const deleteUser = document.getElementById('delete');
-
-
-
-
-
 /* -------- Google Maps Marker -------- */
 $(document).ready(function(){
     console.log("Lets find those venues!");
@@ -249,7 +242,9 @@ deleteUser.addEventListener('click', (event) => {
     })
         .then((dataStream) => dataStream.json())
         .then((data) => { 
-        // window.location = '/index';
+
+        window.location = '/index';
+
         console.log(data)
     })
         .catch((error) => console.log(error))
